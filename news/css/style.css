@@ -1,0 +1,67 @@
+body{
+    background-color: rgb(253, 244, 232);
+}
+
+.hot{
+    color: rgb(247, 245, 157);
+    text-shadow:1px 0px 0 rgb(248, 212, 8),
+                -1px 0px 0 rgb(248, 212, 8),
+                0px -1px 0 rgb(248, 212, 8),
+                0px 1px 0 rgb(248, 212, 8),
+                1px 1px 0 rgb(248, 212, 8),
+                -1px -1px 0 rgb(248, 212, 8),
+                1px -1px 0 rgb(248, 212, 8),
+                -1px 1px 0 rgb(248, 212, 8),
+                2px 0px 0 rgb(255, 144, 80),
+                -2px 0px 0 rgb(255, 144, 80),
+                0px -2px 0 rgb(255, 144, 80),
+                0px 2px 0 rgb(255, 144, 80),
+                2px 2px 0 rgb(255, 144, 80),
+                -2px -2px 0 rgb(255, 144, 80),
+                2px -2px 0 rgb(255, 144, 80),
+                -2px 2px 0 rgb(255, 144, 80),
+                3px 0px 0 rgb(85, 23, 1),
+                -3px 0px 0 rgb(85, 23, 1),
+                0px 3px 0 rgb(85, 23, 1),
+                0px -3px 0 rgb(85, 23, 1),
+                3px 3px 0 rgb(85, 23, 1),
+                -3px -3px 0 rgb(85, 23, 1),
+                -3px 3px 0 rgb(85, 23, 1),
+                3px -3px 0 rgb(85, 23, 1),
+                4px 0px 10px rgb(0, 0, 0),
+                -4px 0px 10px rgb(0, 0, 0),
+                0px 4px 10px rgb(0, 0, 0),
+                0px -4px 10px rgb(0, 0, 0),
+                4px 4px 10px rgb(0, 0, 0),
+                -4px -4px 10px rgb(0, 0, 0),
+                -4px 4px 10px rgb(0, 0, 0),
+                4px -4px 10px rgb(0, 0, 0);
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.info{
+    float: right;
+    color: rgb(161, 161, 161);
+    line-height: 0px;
+}
+
+.hr{
+    color: red;
+    border-width: 2px;
+}
+
+.content{
+    width: 60%;
+    margin-left:20%;
+}
+
+p{
+    text-indent: 2em;
+    line-height: 2em;
+}
+
+.img{
+    text-align: center;
+}
