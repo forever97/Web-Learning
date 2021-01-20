@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全能搜索</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1 align="center" style="font-size:50px; margin-top:20px; color:rgb(131, 129, 127);">全能搜索</h1>
+    <div class="tabs" align="center">
+        <div class="tab">
+            <input type="radio" id="tab-1" name="tab-group-1" checked>
+            <label for="tab-1">百度搜索</label>
+            <div class="content">
+                <form action="https://www.baidu.com/s">
+                    <input class="baidu" type="text" name="word" value="" autocomplete="off" /*关掉输入历史* /><input
+                        class="baidu" type="submit" value="百度一下">
+                </form>
+                <img src="img/baidu.png" alt="">
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" id="tab-2" name="tab-group-1">
+            <label for="tab-2">谷歌搜索</label>
+            <div class="content">
+                <form action="https://www.google.com.hk/search">
+                    <input class="google" type="text" name="q" value="" autocomplete="off"><input class="google"
+                        type="submit" value="谷歌搜索">
+                </form>
+                <img src="img/google.png" alt="">
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" id="tab-3" name="tab-group-1">
+            <label for="tab-3">必应搜索</label>
+            <div class="content">
+                <form action="https://cn.bing.com/search">
+                    <input class="bing" type="text" name="q" value="" autocomplete="off"><input class="bing"
+                        type="submit" value="必应搜索">
+                </form>
+                <img src="img/bing.png" alt="">
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" id="tab-4" name="tab-group-1">
+            <label for="tab-4">搜狗搜索</label>
+            <div class="content">
+                <form action="https://www.sogou.com/web">
+                    <input class="sougou" type="text" name="query" value="" autocomplete="off"><input class="sougou"
+                        type="submit" value="搜狗搜索">
+                </form>
+                <img src="img/sougou.png" alt="">
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" id="tab-5" name="tab-group-1">
+            <label for="tab-5">知乎</label>
+            <div class="content">
+                <form action="https://www.zhihu.com/search">
+                    <input class="zhihu" type="text" name="q" value="" autocomplete="off"><input class="zhihu"
+                        type="submit" value="知乎搜索">
+                </form>
+                <img src="img/zhihu.png" alt="">
+            </div>
+        </div>
+        <div class="tab">
+            <input type="radio" id="tab-6" name="tab-group-1">
+            <label for="tab-6">Github</label>
+            <div class="content">
+                <form action="https://github.com/search">
+                    <input class="Github" type="text" name="q" value="" autocomplete="off"><input class="Github"
+                        type="submit" value="Search Github" style="width:140px;">
+                </form>
+                <img src="img/Github.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

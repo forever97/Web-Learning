@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+}
+
+[type=text] {
+    vertical-align: top;
+    /* 设置元素的垂直对齐方式 */
+    border-radius: 10px 0 0 10px;
+    border: 2px solid #c4c7ce;
+    border-right: 0px;
+    width: 500px;
+    height: 16px;
+    padding: 12px 16px;
+    overflow: hidden;
+}
+
+[type=submit] {
+    border-radius: 0 10px 10px 0;
+    border-width: 2px;
+    width: 110px;
+    height: 44px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    color: aliceblue;
+    /* 把默认样式清掉 */
+    border-style: none;
+}
+
+
+[type=text].baidu:focus {
+    outline: none;
+    border: 2px solid #4e6ef2;
+    border-right: 0px;
+}
+
+[type=submit].baidu{
+    border-color: #4e6ef2;
+    background-color: #4e6ef2;
+}
+
+[type=submit].baidu:hover {
+    border-color: #4662d9;
+    background-color: #4662d9;
+}
+
+[type=text].google:focus {
+    outline: none;
+    border: 2px solid #f2b94e;
+    border-right: 0px;
+}
+
+[type=submit].google{
+    border-color: #f2b94e;
+    background-color: #f2b94e;
+}
+
+[type=submit].google:hover {
+    border-color: #f18f32;
+    background-color: #e07b1c;
+}
+
+[type=text].bing:focus {
+    outline: none;
+    border: 2px solid #38af78;
+    border-right: 0px;
+}
+
+[type=submit].bing{
+    border-color: #38af78;
+    background-color: #38af78;
+}
+
+[type=submit].bing:hover {
+    border-color: #127232;
+    background-color: #127232;
+}
+
+[type=text].sougou:focus {
+    outline: none;
+    border: 2px solid #f57b43;
+    border-right: 0px;
+}
+
+[type=submit].sougou{
+    border-color: #f57b43;
+    background-color: #f57b43;
+}
+
+[type=submit].sougou:hover {
+    border-color: #e0431c;
+    background-color: #e0431c;
+}
+
+[type=text].zhihu:focus {
+    outline: none;
+    border: 2px solid #a39995;
+    border-right: 0px;
+}
+
+[type=submit].zhihu{
+    border-color: #a39995;
+    background-color: #a39995;
+}
+
+[type=submit].zhihu:hover {
+    border-color: #3a3736;
+    background-color: #3a3736;
+}
+
+[type=text].Github:focus {
+    outline: none;
+    border: 2px solid #131313;
+    border-right: 0px;
+}
+
+[type=submit].Github{
+    border-color: #131313;
+    background-color: #131313;
+}
+
+[type=submit].Github:hover {
+    border-color: rgb(90, 90, 90);
+    background-color: rgb(90, 90, 90);
+}
+
+.tabs {
+    position: relative;
+    min-height: 300px;
+    clear: both;
+    margin: 50px 20%;
+}
+
+.tab {
+    float: left;
+}
+
+.tab label {
+    margin: 10px;
+    background: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    vertical-align: top;
+}
+
+.tab [type=radio] {
+    display: none;
+}
+
+.content {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: white;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.tab [type=radio]:checked ~ label {
+    background: rgb(99, 99, 99);
+    color: white;
+    z-index: 2;
+}
+
+.tab [type=radio]:checked ~ label ~ .content {
+    z-index: 1;
+}
+
+img{
+    margin-top: 50px;
+    float: right;
+    height: 50px;
+}
+
