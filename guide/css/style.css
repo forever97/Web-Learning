@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.guide{
+    width: 98%;
+    margin-top: 10px;
+    margin-left: 1%;
+    height: 64px;
+    border-bottom: 1px solid #ccc;
+}
+
+.hr{
+    border-color: orange;
+    border-width: 2px;
+    border-style: solid;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+ul li{
+    list-style-type: none;
+    float: left;
+    box-sizing: border-box;
+    height: 60px;
+    padding: 20px;
+}
+
+ul li:hover{
+    background-color: #eee;
+}
