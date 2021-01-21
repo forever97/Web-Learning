@@ -2,4 +2,4 @@
 
 做了手机适配 (VW)
 
-注意line-height 行高 是对于文字的
+注意line-height 行高 是对于文字的 line-height和font-size同高可以文字高度居中
