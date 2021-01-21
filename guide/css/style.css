@@ -17,7 +17,7 @@
     border-style: solid;
 }
 
-a{
+a{ 
     color: black;
     text-decoration: none;
 }
@@ -29,8 +29,8 @@ ul li{
     font-size: 1.5vw;
     text-align: center;
     height: 4.5vw;
-    padding: 1.7vw 2vw 1.3vw;
-    line-height: 1.5vw;
+    line-height: 4.5vw;
+    padding: 0 2vw;
 }
 
 ul li:hover{

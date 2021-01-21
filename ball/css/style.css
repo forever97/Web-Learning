@@ -1,0 +1,63 @@
+.graph {
+    text-align: center;
+    min-height: 400px;
+    position: relative;
+}
+
+.graph div:before,
+.graph div:after {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+#ball {
+    background: #444;
+    z-index: -4;
+}
+
+#ball div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: -3;
+}
+
+#ball div:before{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    background-image: 
+        radial-gradient(circle at right, black 30px, transparent 30px), 
+        radial-gradient(circle at left, black 30px, transparent 30px), 
+        radial-gradient(circle at bottom, black 30px, transparent 30px), 
+        radial-gradient(circle at top, black 30px, transparent 30px), 
+        radial-gradient(circle at 100px 100px, transparent 60px, white 61px), 
+        radial-gradient(circle at 100px 100px, transparent 44px, black 45px);
+    border-radius: 50%;
+    z-index: -2;
+    animation: spin 5s infinite linear;
+}
+
+#ball div:after {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: inset 0 -20px 30px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translateZ(0);
+    }
+    100% {
+        transform: rotate(-360deg) translateZ(0);
+    }
+}

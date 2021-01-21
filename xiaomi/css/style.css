@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.top-img {
+    background-image: url(../img/top-img.png);
+    width: 100%;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: auto 120px;
+}
+
+.guide {
+    background-color: #333;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.guide a {
+    color: #b0b0b0;
+}
+
+.guide a:hover {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.guide ul li {
+    list-style-type: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+}
+
+.guide-left {
+    float: left;
+    margin-left: 10px;
+}
+
+.guide-left ul li {
+    float: left;
+}
+
+.guide-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.guide-right ul li {
+    float: right;
+}
+
+a.shop{
+    /*设置a为inline-block使得其和li一样大*/
+    display: inline-block;
+    background-color: #424242;
+    padding: 0 15px;
+}
+
+a.shop:hover {
+    color: orange;
+    background-color: white;
+}
