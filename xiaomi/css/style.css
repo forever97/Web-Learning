@@ -1,23 +1,61 @@
+/* 总体属性 */
+
 * {
     padding: 0;
     margin: 0;
     font-size: 12px;
 }
 
-.top-img {
-    background-image: url(../img/top-img.png);
-    width: 100%;
-    height: 120px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: auto 120px;
+a {
+    text-decoration: none;
 }
 
-.guide {
+li {
+    list-style-type: none;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+body {
+    text-align: center;
+    width: 100%;
+    /* 设置最小宽度 */
+    min-width: 1226px;
+    font-size: 12px;
+    background-color: #fff;
+    font-family: Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+/* 顶部图片 */
+.top-img {
+    width: 100%;
+    height: 120px;
+    background-image: url(../img/top-img.png);
+    /* 背景图重复设置 */
+    background-repeat: no-repeat;
+    /* 水平 竖直 */
+    background-size: auto 120px;
+    /* 水平 竖直 */
+    background-position: 50% 50%; /* 可以用center代替 */
+}
+
+nav {
     background-color: #333;
     height: 40px;
+    line-height: 40px;
     width: 100%;
-    overflow: hidden;
+}
+
+/* 导航栏-黑 */
+.guide {
+    width: 1226px;
+    margin: 0 auto;
 }
 
 .guide a {
@@ -28,37 +66,26 @@
     color: #fff;
 }
 
-a {
-    text-decoration: none;
-}
-
-.guide ul li {
-    list-style-type: none;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 10px;
-}
-
-.guide-left {
-    float: left;
-    margin-left: 10px;
+.guide span {
+    margin: 8px;
+    color: #424242;
 }
 
 .guide-left ul li {
     float: left;
 }
 
-.guide-right {
-    float: right;
-    margin-right: 10px;
-}
-
 .guide-right ul li {
     float: right;
 }
 
-a.shop{
-    /*设置a为inline-block使得其和li一样大*/
+li.shop {
+    margin-left: 10px;
+}
+
+a.shop {
+    /* 设置a为inline-block, 使其可以设置高度和padding */
+    height: 40px;
     display: inline-block;
     background-color: #424242;
     padding: 0 15px;
@@ -67,4 +94,93 @@ a.shop{
 a.shop:hover {
     color: orange;
     background-color: white;
+}
+
+/* 导航栏-白 */
+.guide1 {
+    height: 100px;
+    width: 1226px;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+
+.guide1 .logo {
+    float: left;
+    margin: 22.5px 0;
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+}
+
+.guide1 .logo::before {
+    content: "";
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    transform-origin: 50% 50%;
+    background: url(../img/mi-logo.png) no-repeat 50% 50%;
+    z-index: 1;
+}
+
+.guide1 ul {
+    float: left;
+    margin-left: 180px;
+    line-height: 100px;
+}
+
+.guide1 ul li {
+    float: left;
+    padding: 0 10px;
+}
+
+.guide1 a {
+    color: #333333;
+    font-size: 16px;
+}
+
+.guide1 a:hover {
+    color: #ff6700;
+}
+
+.search {
+    float: right;
+    line-height: 100px;
+}
+
+.search input[type=text] {
+    vertical-align: middle;
+    border: 1px solid #e0e0e0;
+    width: 234px;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 16px 10px;
+}
+
+.search input[type=submit] {
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    color: grey;
+}
+
+.search input:hover,
+.search input:hover+[type=submit] {
+    border-color: rgb(190, 190, 190);
+    outline: none;
+}
+
+.search input[type=submit]:hover {
+    border: 1px solid #ff6700;
+    background-color: #ff6700;
+    color: #fff;
+}
+
+.search input[type=text]:focus,
+.search input:focus+[type=submit] {
+    border-color: #ff6700;
+    outline: none;
 }
