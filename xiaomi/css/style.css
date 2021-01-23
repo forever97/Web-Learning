@@ -14,11 +14,11 @@ li {
     list-style-type: none;
 }
 
-.left{
+.left {
     float: left;
 }
 
-.right{
+.right {
     float: right;
 }
 
@@ -32,6 +32,11 @@ body {
     font-family: Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
 }
 
+.container {
+    width: 1226px;
+    margin: 0 auto;
+}
+
 /* 顶部图片 */
 .top-img {
     width: 100%;
@@ -42,7 +47,8 @@ body {
     /* 水平 竖直 */
     background-size: auto 120px;
     /* 水平 竖直 */
-    background-position: 50% 50%; /* 可以用center代替 */
+    background-position: 50% 50%;
+    /* 可以用center代替 */
 }
 
 nav {
@@ -183,4 +189,58 @@ a.shop:hover {
 .search input:focus+[type=submit] {
     border-color: #ff6700;
     outline: none;
+}
+
+/* banner图 */
+
+.banner-area {
+    width: 100%;
+    height: 460px;
+}
+
+.banner {
+    width: 100%;
+    height: 460px;
+    position: relative;
+    background: url(../img/banner.webp) no-repeat 50% 50%;
+    background-size: auto 460px;
+}
+
+.banner ul {
+    height: 420px;
+    margin: 0;
+    padding: 20px 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    border: 0;
+    background: rgba(105, 101, 101, .6);
+}
+
+.banner ul li {
+    text-align: left;
+    position: relative;
+    display: block;
+    color: #fff;
+    height: 42px;
+    line-height: 42px;
+}
+
+.banner ul li:hover{
+    background-color: #ff6700;
+}
+
+.banner a{
+    display: inline-block;
+    padding: 0 120px 0 30px;
+    font-size: 14px;
+}
+
+.banner i{
+    display: inline-block;
+    position: absolute;
+    left: 200px;
+    font-size: 10px;
+    padding-right:20px;
 }
