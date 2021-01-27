@@ -51,10 +51,10 @@ body {
     /* 可以用center代替 */
 }
 
-nav {
+/* top-nav样式 */
+.top-nav {
     background-color: #333;
     height: 40px;
-    line-height: 40px;
     width: 100%;
 }
 
@@ -77,12 +77,67 @@ nav {
     color: #424242;
 }
 
+.guide-left,
+.guide-right{
+    margin: 12px 0;
+}
+
 .guide-left ul li {
     float: left;
+    /* 设置height和line-height，中英文对齐 */
+    height: 16px;
+    line-height: 16px;
 }
 
 .guide-right ul li {
     float: right;
+}
+
+/* 下载弹窗 */
+.dl-link{
+    position: relative;
+}
+.dl-link:hover .download{
+    display: block;
+}
+.download {
+    padding: 10px 0;
+    position: absolute;
+    width: 124px;
+    height: 148px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #fff;
+    /* 用鼠标滚轮调 */
+    left: -45px;
+    top: 30px;
+    box-shadow: 0 0 10px 0 #ccc;
+    box-sizing: border-box;
+    display: none;
+    z-index: 1;
+}
+
+.download img{
+    width: 90px;
+    height: 90px;
+}
+
+.download .dltext{
+    display: inline-block;
+    padding: 10px 0;
+    color: #b0b0b0;
+}
+
+.download::after{
+    /* content不能少 */
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent/*透明*/;
+    border-bottom: 10px solid #fff;
+    left: calc(50% - 10px);
+    top: -20px;
 }
 
 li.shop {
@@ -92,9 +147,12 @@ li.shop {
 a.shop {
     /* 设置a为inline-block, 使其可以设置高度和padding */
     height: 40px;
+    line-height: 40px;
     display: inline-block;
     background-color: #424242;
     padding: 0 15px;
+    position: relative;
+    top: -12px;
 }
 
 a.shop:hover {
@@ -147,9 +205,27 @@ a.shop:hover {
     color: #ff6700;
 }
 
+.guide1 li:hover .guide1-open{
+    display: block;
+}
+
+.guide1-open{
+    position: absolute;
+    display: none;
+    height: 230px;
+    width: 100%;
+    min-width: 1226px;
+    border: 1px solid #e0e0e0;
+    border-left: none;
+    border-right: none;
+    background-color: #fff;
+    z-index: 1;
+    top: 260px;
+    left: 0;
+}
+
 .search {
     float: right;
-    line-height: 100px;
 }
 
 .search input[type=text] {
@@ -400,6 +476,7 @@ a.shop:hover {
 
 .shop-area h2 {
     text-align: left;
+    display: block;
     font-size: 22px;
     font-weight: 200;
     line-height: 58px;
@@ -495,13 +572,13 @@ a.shop:hover {
     margin: 0 auto 22px;
 }
 
-.miaosha .item img{
+.item img{
     width: 160px;
     height: 160px;
 }
 
 .item .title {
-    margin: 0 20px 3px;
+    margin: 10px 20px 3px;
     font-size: 14px;
     font-weight: 400;
     text-overflow: ellipsis;
@@ -533,3 +610,68 @@ a.shop:hover {
 .price del{
     color: #b0b0b0;
 }
+
+.note9{
+    width: 1226px;
+    height: 120px;
+    float: left;
+    margin: 20px 0;
+    background-image: url(../img/Note9.webp);
+    background-repeat: no-repeat;
+    background-size: auto 120px;
+    background-position: 50% 50%;
+}
+
+.note9 a {
+    display: inline-block;
+    width: 1226px;
+    height: 120px;
+}
+
+.xiaomi11{
+    width: 234px;
+    height: 614px;
+    float: left;
+    background-image: url(../img/xiaomi11.webp);
+    background-repeat: no-repeat;
+    background-size: 234px 614px;
+    background-position: 50% 50%;
+}
+
+.xiaomi11 a{
+    display: inline-block;
+    width: 234px;
+    height: 614px;
+}
+
+.shop-hover:hover{
+    box-shadow: 0px 0px 60px 0 #e0e0e0; 
+    transform: translateY(-1px);
+}
+
+.phonelist{
+    height: 614px;
+    width: 992px;
+    float: left;
+}
+
+.phonelist .item{
+    position: relative;
+    height: 260px;
+    width: 234px;
+    padding: 20px 0;
+    background: #ffffff;
+    text-align: center;
+    margin-left: 14px;
+    margin-bottom: 14px;
+}
+
+.phonelist .item a{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 260px;
+    width: 234px;
+}
+
+
