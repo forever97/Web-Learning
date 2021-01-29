@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>wave</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+            background-color: rgb(118, 218, 255);
+            overflow: hidden;
+            animation: colorchange 50s linear infinite;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: 15vh;
+            min-width: 300vw;
+            min-height: 300vw;
+            background-color: #FFFFFF;
+            animation: rote 10s linear infinite, up 50s ease infinite;
+        }
+
+        body::before {
+            left: -95%;
+            border-radius: 45%;
+            opacity: .5;
+        }
+
+        body::after {
+            left: -95%;
+            border-radius: 46%;
+        }
+
+        @keyframes colorchange {
+            0% {
+                background-color: rgb(118, 218, 255);
+            }
+
+            30% {
+                background-color: rgb(71, 132, 155);
+            }
+
+            74.9% {
+                background-color: rgb(177, 39, 39);
+            }
+
+            75% {
+                background-color: rgb(242, 245, 198);
+            }
+
+            75.1% {
+                background-color: rgb(177, 39, 39);
+            }
+
+            100% {
+                background-color: rgb(118, 218, 255);
+            }
+        }
+
+        @keyframes up {
+            0% {
+                bottom: 15vh;
+            }
+
+            75% {
+                bottom: 75vh;
+            }
+
+            100% {
+                bottom: 15vh;
+            }
+        }
+
+        @keyframes rote {
+            0% {
+                transform: rotateZ(0);
+            }
+
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body></body>
+
+</html>
