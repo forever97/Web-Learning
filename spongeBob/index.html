@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        .img {
+            width: 300px;
+            height: 450px;
+            background-image: url(https://forever97-picture-bed.oss-cn-hangzhou.aliyuncs.com/img/spongeBob.png);
+            background-size: 300px 450px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin-left: 300px;
+            margin-right: 50px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .mask {
+            width: 80px;
+            height: 90px;
+            background-color: rgba(255, 157, 0, 0.603);
+            display: none;
+            position: absolute;
+        }
+
+        .big {
+            border: 5px solid orange;
+            width: 160px;
+            height: 180px;
+            background-image: url(https://forever97-picture-bed.oss-cn-hangzhou.aliyuncs.com/img/spongeBob.png);
+            background-size: 600px 900px;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img">
+        <div class="mask"></div>
+    </div>
+    <div class="big"></div>
+    <script>
+        var img = document.querySelector('.img')
+        var mask = document.querySelector('.mask')
+        var big = document.querySelector('.big')
+        img.addEventListener('mouseover', function () {
+            mask.style.display = "block"
+            big.style.display = "inline-block"
+        })
+        img.addEventListener('mouseout', function () {
+            mask.style.display = "none"
+            big.style.display = "none"
+        })
+        img.addEventListener('mousemove', function (evt) {
+            // 计算鼠标在盒子内的坐标
+            let x = evt.pageX - this.offsetLeft
+            let y = evt.pageY - this.offsetTop
+            // 计算遮罩的左上角坐标值
+            let maskX = x - mask.offsetWidth / 2
+            let maskY = y - mask.offsetHeight / 2
+            var widthMax = img.offsetWidth - mask.offsetWidth
+            var heightMax = img.offsetHeight - mask.offsetHeight
+            maskX = Math.min(Math.max(0,maskX),widthMax)
+            maskY = Math.min(Math.max(0,maskY),heightMax)
+            mask.style.left = maskX + 'px'
+            mask.style.top = maskY + 'px'
+            big.style.backgroundPosition= -maskX*2 + "px" + " " + -maskY*2 +"px"
+        })
+    </script>
+</body>
+
+</html>
