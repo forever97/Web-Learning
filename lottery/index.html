@@ -141,7 +141,7 @@
         }
 
 
-        // 刮刮乐
+        // 鼠标刮刮乐
         var canDarw = false
         c1.onmousedown = function () {
             canDraw = true
@@ -160,6 +160,26 @@
                 ctx.closePath()
             }
         }
+
+        // 手指触控
+        c1.ontouchstart = function(){
+            canDraw = true
+        }
+        c1.ontouchend = function () {
+            canDraw = false
+        }
+        c1.addEventListener("touchmove",function(evt){
+            console.log([evt])
+            if (canDraw) {
+                ctx.beginPath()
+                var x = evt.touches[0].pageX - c1.offsetLeft;
+                var y = evt.touches[0].pageY - c1.offsetTop;
+                ctx.globalCompositeOperation = "destination-out"
+                ctx.arc(x, y, 20, 0, 2 * Math.PI)
+                ctx.fill()
+                ctx.closePath()
+            }
+        })
 
         // 模式选择
         var btnTruth = document.querySelector(".btnTruth")
