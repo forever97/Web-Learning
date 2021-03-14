@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真心话大冒险</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #lottery {
+            width: 600px;
+            height: 400px;
+            background-color: rgb(255, 242, 127);
+            border-radius: 10px;
+            border: 4px rgb(255, 115, 0) solid;
+            position: relative;
+        }
+
+        #lottery h1{
+            margin-top: 8%;
+            text-align: center;
+            color: rgb(255, 115, 0);
+        }
+
+        #content {
+            width: 500px;
+            height: 100px;
+            font-size: 30px;
+            line-height: 100px;
+            background-color: #fff;
+            position: absolute;
+            left: calc(50% - 250px);
+            top: 120px;
+            text-align: center;
+            border: 2px orange solid;
+            user-select: none;
+        }
+
+        #c1 {
+            position: absolute;
+            left: calc(50% - 250px);
+            top: 120px;
+            border: 2px orange solid;
+        }
+
+        #btnList{
+            width: 100%;
+            position: absolute;
+            top: 70%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btnTruth,
+        .btnAdv{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            background-color: orange;
+            color: #fff;
+            border-radius: 10px;
+            border: orange 2px solid;
+            user-select: none;
+        }
+
+        .active{
+            border: red 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lottery">
+        <h1>真心话 or 大冒险</h1>
+        <div id="content"></div>
+        <canvas id="c1" width="500px" height="100px"></canvas>
+        <div id="btnList">
+            <div class="active btnTruth">真心话</div>
+            <div class="btnAdv">大冒险</div>
+        </div>
+    </div>
+    <script>
+        var c1 = document.querySelector("#c1")
+        var ctx = c1.getContext('2d')
+        var content = document.querySelector("#content")
+
+        // 真心话
+        var truth = [{ content: "近一个星期内最让你开心的事" }, { content: "最害怕的三件事物" }, { content: "最喜欢的三种食物或饮品" }, { content: "和异性发生过最暧昧的事情" }]
+        var renderTruth = function () {
+            var randomNum = Math.random()
+            if (randomNum < 0.25) {
+                content.innerHTML = truth[0].content;
+            }
+            else if (randomNum < 0.5) {
+                content.innerHTML = truth[1].content;
+            }
+            else if (randomNum < 0.75) {
+                content.innerHTML = truth[2].content;
+            }
+            else {
+                content.innerHTML = truth[3].content;
+            }
+            ctx.beginPath()
+            ctx.globalCompositeOperation = "source-over"
+            ctx.fillStyle = "grey"
+            ctx.fillRect(0, 0, 500, 100)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        renderTruth()
+
+        // 大冒险
+        var adventure = [{ content: "亲吻一分钟墙壁" }, { content: "对陌生人挤眉弄眼" }, { content: "唱青藏高原最后一句" }, { content: "表演大猩猩捶胸呐喊" }]
+        var renderAdv = function () {
+            var randomNum = Math.random()
+            if (randomNum < 0.25) {
+                content.innerHTML = adventure[0].content;
+            }
+            else if (randomNum < 0.5) {
+                content.innerHTML = adventure[1].content;
+            }
+            else if (randomNum < 0.75) {
+                content.innerHTML = adventure[2].content;
+            }
+            else {
+                content.innerHTML = adventure[3].content;
+            }
+            ctx.beginPath()
+            ctx.globalCompositeOperation = "source-over"
+            ctx.fillStyle = "grey"
+            ctx.fillRect(0, 0, 500, 100)
+            ctx.stroke()
+            ctx.closePath()
+        }
+
+
+        // 刮刮乐
+        var canDarw = false
+        c1.onmousedown = function () {
+            canDraw = true
+        }
+        c1.onmouseup = function () {
+            canDraw = false
+        }
+        c1.onmousemove = function (evt) {
+            if (canDraw) {
+                ctx.beginPath()
+                var x = evt.pageX - c1.offsetLeft;
+                var y = evt.pageY - c1.offsetTop;
+                ctx.globalCompositeOperation = "destination-out"
+                ctx.arc(x, y, 20, 0, 2 * Math.PI)
+                ctx.fill()
+                ctx.closePath()
+            }
+        }
+
+        // 模式选择
+        var btnTruth = document.querySelector(".btnTruth")
+        var btnAdv = document.querySelector(".btnAdv")
+        btnTruth.onclick = function(){
+            renderTruth()
+            btnAdv.classList.remove("active")
+            btnTruth.classList.add("active")
+        }
+        btnAdv.onclick = function(){
+            renderAdv()
+            btnTruth.classList.remove("active")
+            btnAdv.classList.add("active")
+        }
+    </script>
+</body>
+
+</html>
