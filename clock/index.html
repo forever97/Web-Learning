@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+</head>
+
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+    <script>
+        var c1 = document.querySelector("#c1")
+        var ctx = c1.getContext("2d")
+
+        var render = function () {
+            // 清空画布
+            ctx.clearRect(0, 0, 600, 400)
+
+            // 画一个外边框
+            ctx.beginPath()
+            ctx.arc(300, 200, 180, 0, Math.PI*2, true)
+            ctx.lineWidth = 6
+            ctx.strokeStyle = "rgb(255, 94, 0)"
+            ctx.stroke()
+            ctx.closePath()
+
+            ctx.save() //原始存档点
+            
+            // 移动原点到中心
+            ctx.translate(300, 200)
+            // 旋转坐标轴，把x轴转到原来y轴的位置
+            ctx.rotate(-Math.PI / 2)
+            // 保存指针状态
+            ctx.save() // 原点在中心，x轴旋转的存档点
+
+            // 绘制时针刻度 旋转x轴
+            for (let i = 0; i < 12; i++) {
+                ctx.beginPath()
+                ctx.lineWidth = 6
+                ctx.strokeStyle = "black"
+                ctx.moveTo(150, 0)
+                ctx.lineTo(170, 0)
+                ctx.stroke()
+                ctx.closePath()
+                ctx.rotate(Math.PI / 6)
+            }
+            // 秒针刻度
+            for (let i = 0; i < 60; i++) {
+                if (i % 5 == 0) {
+                    ctx.rotate(Math.PI / 30)
+                    continue
+                }
+                ctx.beginPath()
+                ctx.lineWidth = 2
+                ctx.strokeStyle = "grey"
+                ctx.moveTo(160, 0)
+                ctx.lineTo(170, 0)
+                ctx.stroke()
+                ctx.closePath()
+                ctx.rotate(Math.PI / 30)
+            }
+
+            // 获取当前时间
+            var time = new Date()
+            var hour = time.getHours()
+            var minute = time.getMinutes()
+            var sec = time.getSeconds()
+            if (hour >= 12) hour -= 12;
+
+            // 秒针
+            ctx.rotate(2 * Math.PI / 60 * sec)
+            ctx.beginPath()
+            ctx.strokeStyle = "orange"
+            ctx.lineWidth = 2
+            ctx.moveTo(-30, 0)
+            ctx.lineTo(120, 0)
+            ctx.stroke()
+            ctx.closePath()
+
+            // 恢复并备份
+            ctx.restore()
+            ctx.save()
+
+            // 分针
+            ctx.rotate(2 * Math.PI / 60 * minute + 2 * Math.PI / 60 / 60 * sec)
+            ctx.beginPath()
+            ctx.lineWidth = 3
+            ctx.strokeStyle = "black"
+            ctx.moveTo(-20, 0)
+            ctx.lineTo(90, 0)
+            ctx.stroke()
+            ctx.closePath()
+
+            ctx.restore()
+            ctx.save()
+
+            // 时针
+            ctx.rotate(2 * Math.PI / 12 * hour + 2 * Math.PI / 12 / 60 * minute + 2 * Math.PI / 12 / 60 / 60 * sec)
+            ctx.beginPath()
+            ctx.lineWidth = 5
+            ctx.strokeStyle = "black"
+            ctx.moveTo(-10, 0)
+            ctx.lineTo(80, 0)
+            ctx.stroke()
+            ctx.closePath()
+
+            ctx.restore() // 返回原点在中心，x轴旋转的存档点
+            ctx.restore() // 返回原始存档点
+        }
+        
+        render()
+
+        var intervalId = setInterval(render, 1000)
+
+    </script>
+</body>
+
+</html>

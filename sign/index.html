@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个性签名板</title>
+    <style>
+        .btn {
+            display: inline-block;
+            text-align: center;
+            box-sizing: border-box;
+            height: 40px;
+            line-height: 40px;
+            width: 100px;
+            vertical-align: middle;
+            text-decoration: none;
+            border: 1px solid rgb(255, 94, 0);
+            background-color: rgb(255, 136, 0);
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .active {
+            background-color: rgb(255, 94, 0);
+        }
+
+        .mode {
+            background-color: rgb(250, 120, 120);
+        }
+
+        [type="color"] {
+            box-sizing: border-box;
+            width: 30px;
+            height: 20px;
+            background-color: rgb(255, 136, 0);
+            border: 0;
+            outline: none;
+            vertical-align: middle;
+        }
+
+        .frame {
+            border: 3px orange solid;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .mark {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 16px;
+            position: absolute;
+            color: #fff;
+            background-color: orange;
+        }
+
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; color: rgb(255, 94, 0)">个性签名</h1>
+    <hr style="border: 1px orange solid" />
+    <div class="mark">签名区域</div>
+    <div class="content">
+        <canvas id="c1" width="600" height="300" class="frame"></canvas>
+        <img id="show" width="600" height="300" class="frame">
+    </div>
+    <hr style="border: 1px orange solid" />
+    <button id="colorBtn" class="btn">
+        <span>颜色</span>
+        <input id="color" type="color">
+    </button>
+    <button id="darwBtn1" class="btn">画笔:粗</button>
+    <button id="darwBtn2" class="btn mode">画笔:细</button>
+    <button id="clearBtn" class="btn">橡皮</button>
+    <button id="clearAllBtn" class="btn">清空</button>
+    <button id="saveBtn" class="btn">生成签名</button>
+    <a href="" download="电子签名" id="download" class="btn">下载签名</a>
+    <script>
+        var canvas = document.querySelector("#c1")
+        var ctx = c1.getContext("2d")
+
+        // 设置画笔权限
+        var canDarw = false;
+
+        // 线段更圆润
+        ctx.lineJoin = "round"
+        ctx.lineCap = "round"
+
+        // 鼠标按下激活画笔
+        canvas.onmousedown = function (evt) {
+            canDarw = true;
+            ctx.beginPath()
+            var x = evt.pageX - canvas.offsetLeft
+            var y = evt.pageY - canvas.offsetTop
+            ctx.moveTo(x, y)
+        }
+
+        // 鼠标松开或者离开画板即停止签名
+        canvas.onmouseup = function (evt) {
+            canDarw = false;
+            ctx.endPath()
+        }
+        canvas.onmouseleave = function (evt) {
+            canDarw = false;
+            ctx.endPath()
+        }
+
+        // 鼠标移动时
+        canvas.onmousemove = function (evt) {
+            if (canDarw) {
+                var x = evt.pageX - canvas.offsetLeft
+                var y = evt.pageY - canvas.offsetTop
+                ctx.lineTo(x, y)
+                ctx.stroke()
+            }
+        }
+
+        // 颜色选择按钮
+        var colorBtn = document.querySelector("#colorBtn")
+        var color = document.querySelector("#color")
+        colorBtn.onclick = function () {
+            color.click()
+        }
+        // 监控颜色改变
+        color.onchange = function () {
+            ctx.strokeStyle = color.value
+        }
+
+        // 将模式状态清空
+        var clearMode = function () {
+            darwBtn1.classList.remove("mode")
+            darwBtn2.classList.remove("mode")
+            clearBtn.classList.remove("mode")
+        }
+
+        // 设置画笔的粗细
+        var darwBtn1 = document.querySelector('#darwBtn1')
+        darwBtn1.onclick = function () {
+            clearMode()
+            darwBtn1.classList.add("mode")
+            ctx.globalCompositeOperation = 'source-over'
+            ctx.lineWidth = 5;
+        }
+        var darwBtn2 = document.querySelector('#darwBtn2')
+        darwBtn2.onclick = function () {
+            clearMode()
+            darwBtn2.classList.add("mode")
+            ctx.globalCompositeOperation = 'source-over'
+            ctx.lineWidth = 1;
+        }
+
+        // 橡皮擦
+        var clearBtn = document.querySelector('#clearBtn');
+        clearBtn.onclick = function () {
+            clearMode()
+            clearBtn.classList.add("mode")
+            ctx.globalCompositeOperation = 'destination-out'
+            ctx.lineWidth = 30
+        }
+
+        // 清空画布
+        var clearAllBtn = document.querySelector('#clearAllBtn');
+        clearAllBtn.onclick = function () {
+            ctx.clearRect(0, 0, 600, 300)
+        }
+
+        // 保存签名，生成预览并激活下载按钮
+        var saveBtn = document.querySelector("#saveBtn")
+        saveBtn.onclick = function () {
+            var urlData = canvas.toDataURL()
+            var img = document.querySelector("#show")
+            img.src = urlData
+            var download = document.querySelector("#download")
+            download.href = urlData
+            download.classList.add("active")
+        }
+
+    </script>
+</body>
+
+</html>
